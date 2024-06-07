@@ -1,0 +1,253 @@
+body{background-color: 
+    #f0d260;display: flex; flex-direction: column; min-height: 100vh;
+}
+.navbar-custom{background-color: 
+    #0182f6;
+}
+.nav-item-custom{
+    color: white;
+}
+.nav-bar-custom{
+    background-color: #0182f6;
+}
+.IconFooter{
+    width: 32px;
+    height: 32px;
+    margin-top: 25%;
+    margin-left: 2%;
+    margin-right: 2%;
+    align-self: center;
+    margin-bottom: 10%;
+}
+footer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: .3%;
+    color: #333333;
+    font-weight: bold;
+    background-color: #0182f6;
+}
+.carousel-inner img {
+    width: 100%; 
+    height:fit-content;
+}
+  
+.carousel-inner {
+    height: 500px;
+}
+
+h1{
+    color:#333333;
+    padding-top: 8%;
+    font-weight: lighter;
+}
+
+.right-item{
+    margin-left: auto;
+    margin-right: 1.2%;
+}
+#IniciarSesionButton{
+    color:white;
+    text-decoration: none;
+
+}
+.FooterIzquierda{
+    align-self: flex-start;
+}
+#FooterDerecha{
+    align-self: flex-end;
+    margin-left: .2%;
+    margin-right: 3%;
+    text-align: left;
+}
+#FooterCentro{
+    align-self: center;
+    margin-left: .2%;
+    margin-right: .2%;
+}
+p{
+    margin-top: 2%;
+    text-align: center;
+    font-weight: light;
+    color: #333333;;
+    font-size: larger;
+
+}
+#VidIzq{
+    margin-left: 15%;
+    align-content: left;
+}
+#VidDer{
+    margin-right: 15%;
+    text-align: right;
+}
+ul{
+    list-style: none;
+}
+
+.TxtIcono{
+    margin-left: 7%;
+    color: white;
+    text-decoration: none;
+}
+#TxtIconoD{
+    color: white;
+    text-decoration: none;
+}
+.IconFooter mr-2{
+    margin-bottom:5%
+}
+
+.SubVideo{
+    font-size: larger;
+    text-align: justify;
+    font-weight:550;
+}
+
+.BloqueSeparador{
+    padding-top: 5%;
+    padding-bottom:5%;
+    width: 100%;
+    height: 160px;
+    background-color: #81368b;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+#Bienvenida{
+    border-top: 10%;
+    color: white;
+    font-size:30px;
+    font-weight: bolder;
+
+}
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.txtModal {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.txtModal input {
+    margin-left: 10px;
+}
+
+
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.form-group label {
+    flex: 1;
+    text-align: right;
+    margin-right: 10px;
+}
+.form-group input, .form-group textarea {
+    flex: 2;
+}
+.table td {
+    vertical-align: middle;
+    text-align: center;
+    background-color: #f0d260;
+    border-bottom: #f0d260;
+    color: #333333;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.table td:first-child {
+    text-align: right;}
+
+
+
+.container-gallery{
+    width:80%;
+    margin: 80px auto;
+}
+.container p{
+    font-weight: bolder;
+    margin-left: 20px;
+    color: #333333;
+    line-height: 22px;
+    font-size: 15px;
+    font-weight: bolder
+}
+.row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.col{
+    flex-basis: 50%;
+    min-width:250px;
+}
+
+.feature-img{
+    width:83%;
+    margin: auto;
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+.small-img-row{
+    display: flex;
+    background: #f0d260;
+    margin: 20px 0;
+    align-items: center;
+    border-radius: 6px;
+    overflow: hidden;
+    width: 100%;;
+}
+.small-img{
+    position: relative;
+}
+
+.small-img-row p{
+    font-weight: bolder;
+    margin-left: 20px;
+    color: #333333;
+    line-height: 22px;
+    font-size: 15px;
+    font-weight: bolder;
+}
+.play-btn{
+    width: 60px;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    cursor: pointer;
+}
+.small-img .play-btn{
+    width: 35px;
+}
+.video-player{
+    width: 50%;
+    position: fixed;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    z-index: 1000;
+}
+video:focus{
+    outline: none;
+}
+.close-btn{
+    position: absolute;
+    top:10px;
+    right: 10px;
+    width: 30px;
+    cursor: pointer;
+}
+#videoPlayer{
+    display: none;
+}
