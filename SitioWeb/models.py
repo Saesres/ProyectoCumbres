@@ -15,6 +15,10 @@ class utp (models.Model):
     correo_utp = models.EmailField(max_length = 254)
     fec_contra_utp = models.DateField()
 
+class curso (models.Model):
+    nombre_curso = models.CharField(max_length = 25)
+    id_curso= models.AutoField(db_column='idCurso', primary_key=True)
+    
 class Video(models.Model):
     titulo_vid = models.CharField(max_length=100)
     descripcion_vid = models.TextField()
