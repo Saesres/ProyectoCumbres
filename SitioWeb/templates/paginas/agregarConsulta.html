@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir Consulta</title>
+</head>
+<body>
+
+    <div style="text-align: center;">
+        <h2>Formulario para Consulta</h2>
+        <form action="consultaAdd" method="POST">
+
+              consulta:{{i.id_consulta}}<br>
+
+            {% csrf_token %}
+            <pre>ID Consulta: <input type="text" name="idConsulta"></pre>
+            <pre>Nombre:      <input type="text" name="nombre_c"></pre>
+            <pre>Apellido:    <input type="text" name="apellido_c"></pre>
+            <pre>Numero:      <input type="number" name="numero_c"></pre>
+            <pre>Correo:      <input type="email" name="correo_c"></pre>
+            <pre>Consulta:   
+                {% for i in consulta %} 
+                    <option value="{{i.id_consulta}}">{{i.i}}</option>
+                {% endfor %}
+            </pre>
+
+            <input type="submit" name="opcion" value="Agregar">
+        </form><br><br>
+
+        <a href="{% url 'crud' %}">Volver</a>
+        <br>
+        <div id="idMensajes">
+            {% if mensaje %}
+                {{mensaje}}
+            {% endif %}
+
+        </div>
+
+    </div>
+    
+</body>
+</html>

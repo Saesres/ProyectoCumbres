@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Consulta</title>
+</head>
+<body>
+
+    <h1>Editar datos de la Consulta</h1>
+    <br>
+
+    <button type="button">
+        <a href="{% url 'agregarConsulta' %}">Agregar</a>
+    </button>
+
+    <div id="idMensajes">
+        {% if mensaje %}
+            {{ mensaje }}
+        {% endif %}
+    </div>
+
+    <table>
+        {% if consulta %}
+            <tr>
+                <th>Número de consulta</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Número</th>
+                <th>Correo</th>
+                <th>Eliminar</th>
+                <th>Modificar</th>
+            </tr>
+            {% for x in consulta %}
+                <tr>
+                    <td>{{ x.idConsulta }}</td>
+                    <td>{{ x.nombre }}</td>
+                    <td>{{ x.apellido }}</td>
+                    <td>{{ x.telefono }}</td>
+                    <td>{{ x.correo }}</td>
+                    <td><a href="{% url 'consulta_del' pk=x.idConsulta %}">Eliminar</a></td>
+                    <td><a href="{% url 'consulta_findEdit' pk=x.idConsulta %}">Modificar</a></td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </table>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#idMensajes").delay(2000).fadeOut("slow");
+        });
+    </script>
+</body>
+</html>
