@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Consulta</title>
+</head>
+<body>
+
+    <h1>Editar datos de la Consulta</h1>
+    <br>
+
+    <button type="button">
+        <a href="{% url 'añadirConsulta'%}">Agregar</a>
+    </button>
+
+    <div id="idMensajes">
+        {% if mensaje %}
+            {{mensaje}}
+        {% endif %}
+
+    </div>
+
+    <table>
+        {% if consulta %}
+            <th>Número de consulta</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Numero</th>
+            <th>Correo</th>
+            <th>Eliminar</th>
+            <th>Modificar</th>
+
+            {% for x in consulta %}
+                <tr>
+                    <td>{{x.idConsulta}}</td>
+                    <td>{{x.nombre}}</td>
+                    <td>{{x.apellido}}</td>
+                    <td>{{x.telefono}}</td>
+                    <td>{{x.correo}}</td>
+                    <td><a href="{% url 'autos_del' pk=x.idConsulta %}"></a>Eliminar</td>
+                    <td><a href="{% url 'autos_findEdit' pk=x.idConsulta %}"></a>Modificar</td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </table>
+    <script>"//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"</script>
+    <script>
+        $(document).ready(function(){
+            $("#idMensajes").delay(2000).fadeOut("slow");
+        });
+    </script>
+</body>
+</html>
