@@ -35,11 +35,13 @@ def crud(request):
     context = {'consulta':consulta}
     return render(request, 'SitioWeb/listaConsulta.html',context)
 
-def consultasAdd(request):
+
+
+def consultaAdd(request):
     if request.method is not "POST":
         nombre = nombre.objects.all()
         context = {'nombre':nombre}
-        return render(request, 'automovil/autos_add.html',context)
+        return render(request, 'SitioWeb/agregarConsulta.html',context)
     else:
         
         id_consulta = request.POST["idConsulta"]
@@ -59,7 +61,7 @@ def consultasAdd(request):
         )
         objetoNombre.save()
         context = {'mensaje':'OK, datos guardados...'}
-        return render(request, 'SitioWeb/añadirConsulta.html',context)
+        return render(request, 'SitioWeb/agregarConsulta.html',context)
     
     return render(request, 'tu_template_de_login.html', {'login_success': True})
 

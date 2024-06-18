@@ -15,10 +15,10 @@
 
             {% csrf_token %}
             <pre>ID Consulta: <input type="text" name="idConsulta"></pre>
-            <pre>Nombre:     <input type="text" name="nombre_c"></pre>
-            <pre>Apellido: <input type="text" name="apellido_c"></pre>
-            <pre>Numero:       <input type="number" name="numero_c"></pre>
-            <pre>Correo:    <input type="email" name="correo_c"></pre>
+            <pre>Nombre:      <input type="text" name="nombre_c"></pre>
+            <pre>Apellido:    <input type="text" name="apellido_c"></pre>
+            <pre>Numero:      <input type="number" name="numero_c"></pre>
+            <pre>Correo:      <input type="email" name="correo_c"></pre>
             <pre>Consulta:   
                 {% for i in consulta %} 
                     <option value="{{i.id_consulta}}">{{i.i}}</option>
