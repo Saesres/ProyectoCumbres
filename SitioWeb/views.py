@@ -14,9 +14,6 @@ def index(request):
 
 def Contacto(request):
     context={}
-<<<<<<< HEAD
-    return render(request,'paginas/Contacto.html', context)
-=======
     return render(request,'paginas/Contacto.html', context)
 
 
@@ -70,7 +67,3 @@ def consultaAdd(request):
         context = {'mensaje':'OK, datos guardados...'}
         return render(request, 'SitioWeb/agregarConsulta.html',context)
     
-    return render(request, 'tu_template_de_login.html', {'login_success': True})
-
-    return render(request, 'tu_template_de_login.html', {'login_success': False, 'error_message': 'Usuario o contraseña inválidos.'})
->>>>>>> cc556bdab8d2b5c586034cd97aa771e93c4e26d8
