@@ -11,7 +11,7 @@
  <link type='text/css' href="{%static "css/style.css"%}" rel="stylesheet" />
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-custom">
+  <nav class="navbar navbar-expand-lg navbar-custom">
       <div class="container-fluid nav-bar-custom">
         <a class="navbar-brand" href=""><img src='{%static "Imagenes/Logo.png"%}' alt="Bootstrap" width="90" height="72"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,9 +44,9 @@
         </div>
         </div>
       </div>
-    </nav>
+  </nav>
     <br><br><br>
-    <main>
+  <main>
         <div class="card" id="listarProf">
             <div class="card-body">
                 <h2>Listado de Profesores</h2>
@@ -58,9 +58,7 @@
                         <th>Correo Profesor</th>
                         <th>Fecha de Contrato Profesor</th>
                     </tr>
-    
                     {% for p in profesores %}
-    
                     <tr>
                         <td>{{ p.nombre_prof }}</td>
                         <td>{{ p.apellido_prof }}</td>
@@ -72,40 +70,41 @@
                 </table>
             </div>
         </div>
-    </main>
-    <footer>
-        <div class="FooterIzquierda">
-          <ul>
-            <li class="ListaFooter d-flex align-items-center">
-              <a href="https://api.whatsapp.com/send/?phone=56966967653&text=Hola%21+necesito+informaci%C3%B3n+sobre+este+Colegio&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">
-                <img src='{%static "Imagenes/whatsapp.png"%}' class="IconFooter mr-2">
-              </a>
-              <a  href="https://api.whatsapp.com/send/?phone=56966967653&text=Hola%21+necesito+informaci%C3%B3n+sobre+este+Colegio&type=phone_number&app_absent=0"  target="_blank" rel="noopener noreferrer" class="TxtIcono">WhatsApp</a>
-            </li>
-            <li class="ListaFooter d-flex align-items-center">
-              <a href="https://www.facebook.com/escueladelenguajecumbresdeplacillavalparaiso/"  target="_blank" rel="noopener noreferrer" class="IconoFooter">
-                <img src='{%static "Imagenes/facebook.png"%}' class="IconFooter mr-2">
-              </a>
-              <a  href="https://www.facebook.com/escueladelenguajecumbresdeplacillavalparaiso/"  target="_blank" rel="noopener noreferrer" class="TxtIcono">Facebook</a>
-            </li>
-            <li class="ListaFooter d-flex align-items-center">
-              <a href="https://www.instagram.com/cumbresdeplacillavalparaiso/"  target="_blank" rel="noopener noreferrer">
-                <img src='{%static "Imagenes/instagram.png"%}' alt="Instagram" class="IconFooter mr-2">
-              </a>
-              <a  href="https://www.instagram.com/cumbresdeplacillavalparaiso/"  target="_blank" rel="noopener noreferrer" class="TxtIcono">Instagram</a>
-            </li>
-          </ul>
+  </main>
+  <br>
+  <footer>
+    <div class="FooterIzquierda">
+      <ul>
+        <li class="ListaFooter d-flex align-items-center">
+          <a href="https://api.whatsapp.com/send/?phone=56966967653&text=Hola%21+necesito+informaci%C3%B3n+sobre+este+Colegio&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">
+            <img src='{%static "Imagenes/whatsapp.png"%}' class="IconFooter mr-2">
+          </a>
+          <a  href="https://api.whatsapp.com/send/?phone=56966967653&text=Hola%21+necesito+informaci%C3%B3n+sobre+este+Colegio&type=phone_number&app_absent=0"  target="_blank" rel="noopener noreferrer" class="TxtIcono">WhatsApp</a>
+        </li>
+        <li class="ListaFooter d-flex align-items-center">
+          <a href="https://www.facebook.com/escueladelenguajecumbresdeplacillavalparaiso/"  target="_blank" rel="noopener noreferrer" class="IconoFooter">
+            <img src='{%static "Imagenes/facebook.png"%}' class="IconFooter mr-2">
+          </a>
+          <a  href="https://www.facebook.com/escueladelenguajecumbresdeplacillavalparaiso/"  target="_blank" rel="noopener noreferrer" class="TxtIcono">Facebook</a>
+        </li>
+        <li class="ListaFooter d-flex align-items-center">
+          <a href="https://www.instagram.com/cumbresdeplacillavalparaiso/"  target="_blank" rel="noopener noreferrer">
+            <img src='{%static "Imagenes/instagram.png"%}' alt="Instagram" class="IconFooter mr-2">
+          </a>
+          <a  href="https://www.instagram.com/cumbresdeplacillavalparaiso/"  target="_blank" rel="noopener noreferrer" class="TxtIcono">Instagram</a>
+        </li>
+      </ul>
+    </div>
+    
+        <div ID="FooterCentro">
+          <img src='{%static "Imagenes/letras-del-logo-logo.png"%}'>
         </div>
-        
-            <div ID="FooterCentro">
-              <img src='{%static "Imagenes/letras-del-logo-logo.png"%}'>
-            </div>
-            <div ID="FooterDerecha" class="d-flex align-items-center">
-              <a href="https://maps.app.goo.gl/qd44qkzyeYCdrR2x8" target="_blank" rel="noopener noreferrer">
-                <img src='{%static "Imagenes/GoogleMaps.png"%}' alt="GoogleMaps" class="IconFooter mr-2">
-              </a>
-              <a href="https://maps.app.goo.gl/qd44qkzyeYCdrR2x8" target="_blank" rel="noopener noreferrer" ID="TxtIconoD">Martínez Cruz 64, Valparaíso, Chile</a>
-            </div>
-        </footer>
-  </body>
-  </html>
+        <div ID="FooterDerecha" class="d-flex align-items-center">
+          <a href="https://maps.app.goo.gl/qd44qkzyeYCdrR2x8" target="_blank" rel="noopener noreferrer">
+            <img src='{%static "Imagenes/GoogleMaps.png"%}' alt="GoogleMaps" class="IconFooter mr-2">
+          </a>
+          <a href="https://maps.app.goo.gl/qd44qkzyeYCdrR2x8" target="_blank" rel="noopener noreferrer" ID="TxtIconoD">Martínez Cruz 64, Valparaíso, Chile</a>
+        </div>
+    </footer>
+</body>
+</html>
