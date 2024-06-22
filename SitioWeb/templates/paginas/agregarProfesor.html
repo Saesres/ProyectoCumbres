@@ -45,78 +45,34 @@
         </div>
       </div>
     </nav>
-    <main>
-        <div class="row">
-
-            <div class="col-12 col-md-6 offset-md-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h2>Agregar Profesor</h2>
-                        <hr>
-                        <form action="/agregarProfesor/" method="post" enctype="multipart/form-data">
-
-                        {% csrf_token %}
-
-                        {{ form }}
-
-                        <div class="d-flex justify-content-end">
-                           <input type="reset" value="Cancelar" class="btn btn-secondary">
-                            <input type="submit" value="Guardar" class="btn btn-primary">
-
-
-                        </div>
-
-
-
-
-                        </form>
-                        {{ mensaje }}
-                    </div>    
-                </dir>
-
-
-
-                
-
-
-
-
-
+    <main class="form-container">
+        <div class="card">
+            <div class="card-body">
+                <h2>Agregar Profesor</h2>
+                <hr>
+                <form method="post" action="{% url 'agregarProfesor' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="nombre_prof">Nombre profesor:</label>
+                        <input type="text" class="form-control" id="nombre_prof" name="nombre_prof" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido_prof">Apellido profesor:</label>
+                        <input type="text" class="form-control" id="apellido_prof" name="apellido_prof" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="correo_prof">Correo profesor:</label>
+                        <input type="email" class="form-control" id="correo_prof" name="correo_prof" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fec_contra_prof">Fecha contrato profesor:</label>
+                        <input type="date" class="form-control" id="fec_contra_prof" name="fec_contra_prof" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <a href="{% url 'listarProfesor' %}" class="btn btn-secondary">Cancelar</a>
+                </form>
             </div>
-
-
-
-
         </div>
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </main>
     <footer>
       <div class="FooterIzquierda">
