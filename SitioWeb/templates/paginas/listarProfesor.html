@@ -47,31 +47,31 @@
     </nav>
     <br><br><br>
     <main>
-    <div class="card">
-        <div class="card-body"></div>
-        <h2>Listado de Profesores</h2>
-        <hr>
-        <table class="table table-striped table-hover">
-            <tr>
-                <th>Nombre Profesor</th>
-                <th>Apellido Profesor</th>
-                <th>Correo Profesor</th>
-                <th>Fecha de Contrato Profesor</th>
-            </tr>
+        <div class="card">
+            <div class="card-body">
+                <h2>Listado de Profesores</h2>
+                <hr>
+                <table class="table table-striped table-hover">
+                    <tr>
+                        <th>Nombre Profesor</th>
+                        <th>Apellido Profesor</th>
+                        <th>Correo Profesor</th>
+                        <th>Fecha de Contrato Profesor</th>
+                    </tr>
     
-            {% for p in profesores %}
+                    {% for p in profesores %}
     
-            <tr>
-                <td>{{p.nombre_prof}}</td>
-                <td>{{p.apellido_prof}}</td>
-                <td>{{p.correo_prof}}</td>
-                <td>{{p.fec_contra_prof}}</td>
-            </tr>
+                    <tr>
+                        <td>{{ p.nombre_prof }}</td>
+                        <td>{{ p.apellido_prof }}</td>
+                        <td>{{ p.correo_prof }}</td>
+                        <td>{{ p.fec_contra_prof }}</td>
+                    </tr>
     
-            {% endfor %}
-    
-        </table>
-    </div>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
     </main>
     <footer>
         <div class="FooterIzquierda">
