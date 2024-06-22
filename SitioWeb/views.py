@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
-from .forms import profesorForm
+from .forms import profesorForm, Profesor
 
 class CustomLoginView(LoginView):
     template_name = 'templates/Modals.html'
@@ -32,6 +32,15 @@ def agregarProfesor(request):
             data["mensaje"] = formulario
 
     return render(request,'paginas/agregarProfesor.html', data)
+
+def listarProfesor(request):
+    profesores = Profesor.objects.all()
+
+    data = {
+        'profesores': profesores
+    }
+
+    return render(request, 'paginas/listarProfesor.html')
 
 
 

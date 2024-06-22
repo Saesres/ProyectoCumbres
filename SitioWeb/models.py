@@ -37,13 +37,21 @@ class Imagen(models.Model):
         return self.titulo_img
     
 class Profesor(models.Model):
+    rut_prof = models.IntegerField(max_length=15, primary_key=True)
     nombre_prof = models.CharField(max_length=20)
     apellido_prof = models.CharField(max_length=20)
     correo_prof = models.EmailField(max_length=254)
     fec_contra_prof = models.DateField()
+    
+    def __str__(self):
+        return self.nombre_prof
 
     class Meta:
         db_table = 'SitioWeb_profesor'
+
+class Curso(models.Model):
+    nombre_curso = models.CharField(max_length=30)
+    categoria_curso = models.CharField(max_length=20)
 
 
 class Asistente(models.Model):
