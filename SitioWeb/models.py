@@ -15,7 +15,7 @@ class utp (models.Model):
     correo_utp = models.EmailField(max_length = 254)
     fec_contra_utp = models.DateField()
 
-class curso (models.Model):
+class Curso (models.Model):
     nombre_curso = models.CharField(max_length = 25)
     id_curso= models.AutoField(db_column='idCurso', primary_key=True)
     curso = models.IntegerField()
@@ -37,7 +37,7 @@ class Imagen(models.Model):
         return self.titulo_img
     
 class Profesor(models.Model):
-    rut_prof = models.IntegerField(max_length=15, primary_key=True)
+    rut_prof = models.CharField(max_length=12, primary_key=True)
     nombre_prof = models.CharField(max_length=20)
     apellido_prof = models.CharField(max_length=20)
     correo_prof = models.EmailField(max_length=254)
