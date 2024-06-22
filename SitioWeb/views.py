@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
+from .forms import profesorForm
 
 class CustomLoginView(LoginView):
     template_name = 'templates/Modals.html'
@@ -15,6 +16,27 @@ def index(request):
 def Contacto(request):
     context={}
     return render(request,'paginas/Contacto.html', context)
+
+def agregarProfesor(request):
+
+    data = {
+        'form': profesorForm()
+    }
+
+    if request.method == 'POST':
+        formulario = profesorForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "Profesor Guardado Correctamente"
+        else:
+            data["mensaje"] = formulario
+
+    return render(request,'paginas/agregarProfesor.html', data)
+
+
+
+
+
 
 
 
@@ -33,37 +55,3 @@ def login_view(request):
             return render(request, 'tu_template_de_login.html', {'error': 'Usuario o contraseña inválidos.'})
     else:
         return render(request, 'tu_template_de_login.html')
-
-def crud(request):
-    consulta = consulta.objects.all()
-    context = {'consulta':consulta}
-    return render(request, 'SitioWeb/listaConsulta.html',context)
-
-
-
-def consultaAdd(request):
-    if request.method is not "POST":
-        nombre = nombre.objects.all()
-        context = {'nombre':nombre}
-        return render(request, 'SitioWeb/agregarConsulta.html',context)
-    else:
-        
-        id_consulta = request.POST["idConsulta"]
-        nombre_c = request.POST["Nombre"]
-        apellido_c = request.POST["Apellido"]
-        numero_c = request.POST["Numero"]
-        correo_c = request.POST["Correo"]
-        
-        objetoNombre = nombre.objects.all(id_nombre = nombre)
-        objetoConsulta = id_consulta.objects.create(
-            id_consulta = id_consulta,
-            id_nombre = objetoNombre,
-            apellido_c = apellido_c,
-            numero_c = numero_c,
-            correo_c = correo_c,
-            
-        )
-        objetoNombre.save()
-        context = {'mensaje':'OK, datos guardados...'}
-        return render(request, 'SitioWeb/agregarConsulta.html',context)
-    

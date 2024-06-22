@@ -39,8 +39,11 @@ class Imagen(models.Model):
 class Profesor(models.Model):
     nombre_prof = models.CharField(max_length=20)
     apellido_prof = models.CharField(max_length=20)
-    correo_prof = models.CharField(max_length=254)
+    correo_prof = models.EmailField(max_length=254)
     fec_contra_prof = models.DateField()
+
+    class Meta:
+        db_table = 'SitioWeb_profesor'
 
 
 class Asistente(models.Model):
