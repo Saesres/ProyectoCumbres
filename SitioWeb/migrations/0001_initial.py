@@ -33,14 +33,6 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='curso',
-            fields=[
-                ('nombre_curso', models.CharField(max_length=25)),
-                ('id_curso', models.AutoField(db_column='idCurso', primary_key=True, serialize=False)),
-                ('curso', models.IntegerField()),
-            ],
-        ),
-        migrations.CreateModel(
             name='Imagen',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),

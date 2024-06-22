@@ -49,9 +49,7 @@ class Profesor(models.Model):
     class Meta:
         db_table = 'SitioWeb_profesor'
 
-class Curso(models.Model):
-    nombre_curso = models.CharField(max_length=30)
-    categoria_curso = models.CharField(max_length=20)
+#class Curso(models.Model):#
 
 
 class Asistente(models.Model):
