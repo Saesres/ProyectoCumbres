@@ -35,7 +35,7 @@ def agregarProfesor(request):
 
 def listarProfesor(request):
     profesores = Profesor.objects.all()
-    return render(request, 'paginas/listarProfesor.html', {'profesores': profesores})
+    return render(request, 'paginas/listarProfesor.html', {'Profesores': Profesor})
 
 
 
