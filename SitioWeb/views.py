@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
 from .forms import profesorForm, Profesor
+from .models import Profesor
 
 class CustomLoginView(LoginView):
     template_name = 'templates/Modals.html'
@@ -34,10 +35,32 @@ def agregarProfesor(request):
     return render(request,'paginas/agregarProfesor.html', data)
 
 def listarProfesor(request):
-    profesores = Profesor.objects.all()
-    return render(request, 'paginas/listarProfesor.html', {'Profesores': Profesor})
+    listarProfesor = Profesor.objects.all()
+    return render(request, 'paginas/listarProfesor.html', {'Profesor': listarProfesor})
+
+def modificarProfesor(request, id):
+
+    profesor = get_object_or_404(Profesor, id=id)
+
+    data = {
+        'form': profesorForm(instance=profesor)
+    }
+
+    if request.method == 'POST':
+        formulario = profesorForm(data=request.POST, instance=profesor, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect(to="listarProfesor")
+    
+    return render(request,'paginas/modificarProfesor.html', data)
 
 
+
+
+def eliminarProfesor(request, id):
+    profesor = get_object_or_404(Profesor, id=id)
+    profesor.delete()
+    return redirect('listarProfesor')
 
 
 
