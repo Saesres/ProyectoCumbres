@@ -26,17 +26,20 @@
               <a class="nav-link  nav-item-custom" href="{%url 'Contacto'%}">Contacto</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-item-custom" href="/normativaEjemplo.pdf"  target="_blank" rel="noopener noreferrer">Normativa</a>
+              <a class="nav-link nav-item-custom" href="" target="_blank" rel="noopener noreferrer">Normativa</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle nav-item-custom" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Lista de útiles
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/listaEjemplo.pdf"  target="_blank" rel="noopener noreferrer">Medio Mayor</a></li>
-                <li><a class="dropdown-item" href="/listaEjemplo.pdf"  target="_blank" rel="noopener noreferrer">Pre-Kinder</a></li>
-                <li><a class="dropdown-item" href="/listaEjemplo.pdf"  target="_blank" rel="noopener noreferrer">Kinder</a></li>
+                <li><a class="dropdown-item" href="" target="_blank" rel="noopener noreferrer">Medio Mayor</a></li>
+                <li><a class="dropdown-item" href=""  target="_blank" rel="noopener noreferrer">Pre-Kinder</a></li>
+                <li><a class="dropdown-item" href=""  target="_blank" rel="noopener noreferrer">Kinder</a></li>
               </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-item-custom" href='{%static "/PDF/listaEjemplo.pdf"%}' target="_blank" rel="noopener noreferrer">Normativa</a>
             </li>
           </ul>
           <div class="right-item">
@@ -186,6 +189,7 @@
             <label for="password">Contraseña</label>
             <input type="password" id="password" name="password" value="" required>
         </div>
+        <p><a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -194,7 +198,7 @@
     </div>
   </div>
 </form>
-<p><a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a></p>
+
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
