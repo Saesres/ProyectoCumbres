@@ -39,20 +39,19 @@ def listarProfesor(request):
     return render(request, 'paginas/listarProfesor.html', {'Profesor': listarProfesor})
 
 def modificarProfesor(request, id):
-
     profesor = get_object_or_404(Profesor, id=id)
-
     data = {
-        'form': profesorForm(instance=profesor)
+        'form': profesorForm(instance=profesor),
+        'profesor': profesor
     }
-
     if request.method == 'POST':
         formulario = profesorForm(data=request.POST, instance=profesor, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
-            return redirect(to="listarProfesor")
-    
-    return render(request,'paginas/modificarProfesor.html', data)
+            return redirect('listarProfesor')
+        else:
+            data['form'] = formulario
+    return render(request, 'paginas/modificarProfesor.html', data)
 
 
 
