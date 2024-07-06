@@ -20,7 +20,7 @@ class consulta(models.Model):
     consulta_c = models.TextField()
 
     def __str__(self):
-        return self.id_consulta
+        return self.nombre_c
 
     class Meta:
         db_table = 'SitioWeb_consulta'
