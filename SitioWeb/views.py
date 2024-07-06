@@ -81,3 +81,10 @@ def login_view(request):
             return render(request, 'tu_template_de_login.html', {'error': 'Usuario o contraseña inválidos.'})
     else:
         return render(request, 'tu_template_de_login.html')
+
+
+def menu(request):
+    request.session["usuario"]="utp"
+    usuario = request.session["usuario"]
+    context = {'usuario':usuario}
+    return render(request,'administrador/menu.html')
