@@ -13,8 +13,12 @@ class profesorForm(forms.ModelForm):
         }
 
 class consultaForm(forms.ModelForm):
-
     class Meta:
         model = consulta
-        fields = '__all__'
-         
+        fields = ['nombre_c', 'apellido_c', 'numero_c', 'correo_c', 'apoderado_c', 'curso', 'consulta_c']
+        widgets = {
+            'numero_c': forms.NumberInput(attrs={'class': 'form-control'}),
+            'apoderado_c': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'curso': forms.Select(attrs={'class': 'form-control'}),
+            'consulta_c': forms.TextInput(attrs={'class': 'form-control'}),
+        }
