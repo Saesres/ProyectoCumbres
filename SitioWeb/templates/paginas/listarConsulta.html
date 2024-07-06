@@ -44,26 +44,18 @@
                 <table class="table table-striped table-hover">
                     <tr>
                         <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Numero</th>
                         <th>Correo</th>
                         <th>¿Apoderado?</th>
                         <th>Curso</th>
-                        <th>Consulta</th>
                         <th>Estado</th>
                         <th colspan="2">Opciones</th>
                     </tr>
                     {% for c in consulta %}
                     <tr>
                         <td>{{ c.id_consulta }}</td>
-                        <td>{{ c.nombre_c }}</td>
-                        <td>{{ c.apellido_c }}</td>
-                        <td>{{ c.numero_c }}</td>
                         <td>{{ c.correo_c }}</td>
                         <td>{{ c.apoderado_c }}</td>
-                        <td>{{ c.curso }}</td>
-                        <td>{{ c.consulta_c }}</td>
+                        <td>{{ c.estado_c }}</td>
                         <td><a href="eliminarConsulta/{{p.id}}" class="btn btn-danger">Eliminar</a></td>
                     </tr>
     

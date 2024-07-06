@@ -18,6 +18,7 @@ class consulta(models.Model):
     apoderado_c = models.BooleanField(default=False)
     curso = models.ForeignKey(Curso, on_delete=models.PROTECT,default="")
     consulta_c = models.TextField()
+    estado_c = models.BooleanField(default=False)
 
     def __str__(self):
         return self.nombre_c
