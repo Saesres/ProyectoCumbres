@@ -56,9 +56,15 @@
                         <td>{{ c.correo_c }}</td>
                         <td>{{ c.apoderado_c }}</td>
                         <td>{{ c.curso }}</td>
-                        <td>{{ c.estado_c }}</td>
-                        <td><a href="estadoConsulta/{{p.id}}" class="btn btn-info">Estado</a></td>
-                        <td><a href="eliminarConsulta/{{p.id}}" class="btn btn-danger">Eliminar</a></td>
+                        <td>
+                          {% if c.estado_c == True %}
+                              Resuelta
+                          {% else %}
+                              Pendiente
+                          {% endif %}
+                        </td>
+                        <td><a href="estadoConsulta/{{c.id_consulta}}" class="btn btn-info">Estado</a></td>
+                        <td><a href="eliminarConsulta/{{c.id_consulta}}" class="btn btn-danger">Eliminar</a></td>
                     </tr>
     
                     {% endfor %}

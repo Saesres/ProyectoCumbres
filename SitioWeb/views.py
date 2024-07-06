@@ -75,9 +75,16 @@ def eliminarProfesor(request, id):
     return redirect('listarProfesor')
 
 def eliminarConsulta(request, id):
-    consulta = get_object_or_404(Consulta, id=id)
+    consulta = get_object_or_404(Consulta, id_consulta=id)
     consulta.delete()
     return redirect('listarConsulta')
+
+def estadoConsulta(request, id):
+    consulta = get_object_or_404(Consulta, id_consulta=id)
+    data = {
+        'form': consultaForm(instance=consulta)
+    }
+    return render(request,'paginas/estadoConsulta.html',data)
 
 
 

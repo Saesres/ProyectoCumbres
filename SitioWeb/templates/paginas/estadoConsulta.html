@@ -1,0 +1,155 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Cumbres De Placilla</title>
+ <link rel="icon" href="/Images/Logo.png" type="image/x-icon"> 
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+ <link type='text/css' href="{%static "css/style.css"%}" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+      <div class="container-fluid nav-bar-custom">
+        <a class="navbar-brand" href=""><img src='{%static "Imagenes/Logo.png"%}' alt="Bootstrap" width="90" height="72"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link nav-item-custom" aria-current="page" href="{%url 'index'%}">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link  nav-item-custom" href="{%url 'Contacto'%}">Contacto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-item-custom" href='{%static "/PDF/normativaEjemplo.pdf"%}' target="_blank" rel="noopener noreferrer">Normativa</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle nav-item-custom" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Lista de útiles
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href='{%static "/PDF/listaEjemplo.pdf"%}' target="_blank" rel="noopener noreferrer">Medio Mayor</a></li>
+                <li><a class="dropdown-item" href='{%static "/PDF/listaEjemplo.pdf"%}' target="_blank" rel="noopener noreferrer">Pre-Kinder</a></li>
+                <li><a class="dropdown-item" href='{%static "/PDF/listaEjemplo.pdf"%}'target="_blank" rel="noopener noreferrer">Kinder</a></li>
+              </ul>
+            </li>
+            <li class="nav-item" id="btnCrud">
+              <a class="nav-link nav-item-custom" href="{%url 'agregarProfesor'%}" target="_blank" rel="noopener noreferrer">Gestíon de Profesores</a>
+            </li>
+          </ul>
+          <div class="right-item">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar Sesión</button>
+        </div>
+        </div>
+      </div>
+    </nav>
+    <script type='text/javascript'  src='{% static "js/script.js"%}'></script>
+    <main class="form-container">
+      <br><br><br>
+      <div class="card">
+          <div class="card-body">
+              <h2>Consulta</h2>
+              <hr>
+              <form method="post" action="{% url 'Contacto' %}">
+                  {% csrf_token %}
+                  <div class="form-group">
+                      <label for="nombre_c">Nombre:</label>
+                      <input type="text" class="form-control" id="nombre_c" name="nombre_c" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="apellido_c">Apellido:</label>
+                      <input type="text" class="form-control" id="apellido_c" name="apellido_c" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="numero_c">Número:</label>
+                      <input type="number" class="form-control" id="numero_c" name="numero_c" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="correo_c">Correo:</label>
+                      <input type="email" class="form-control" id="correo_c" name="correo_c" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="apoderado_c">¿Es Apoderado?</label>
+                      <input type="checkbox" class="form-check-input" id="apoderado_c" name="apoderado_c">
+                  </div>
+                  <div class="form-group">
+                      <label for="curso">Curso:</label>
+                      <select class="form-control" id="curso" name="curso" required>
+                          <option value="">Seleccione un curso</option>
+                          <option value="1">Medio Mayor</option>
+                          <option value="2">Kinder</option>
+                          <option value="3">Pre-Kinder</option>
+                      </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="consulta_c">Consulta:</label>
+                      <input type="text" class="form-control" id="consulta_c" name="consulta_c" required>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                      <button type="submit" class="btn btn-primary">Enviar</button>
+                      &nbsp;
+                      <a href="{% url 'listarConsulta' %}" class="btn btn-secondary">Cancelar</a>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </main>
+    <br><br><br><br><br><br><br><br><br><br>
+    <footer>
+      <div class="FooterIzquierda">
+        <ul>
+          <li class="ListaFooter d-flex align-items-center">
+            <a href="https://api.whatsapp.com/send/?phone=56966967653&text=Hola%21+necesito+informaci%C3%B3n+sobre+este+Colegio&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">
+              <img src='{%static "Imagenes/whatsapp.png"%}' class="IconFooter mr-2">
+            </a>
+            <a  href="https://api.whatsapp.com/send/?phone=56966967653&text=Hola%21+necesito+informaci%C3%B3n+sobre+este+Colegio&type=phone_number&app_absent=0"  target="_blank" rel="noopener noreferrer" class="TxtIcono">WhatsApp</a>
+          </li>
+          <li class="ListaFooter d-flex align-items-center">
+            <a href="https://www.facebook.com/escueladelenguajecumbresdeplacillavalparaiso/"  target="_blank" rel="noopener noreferrer" class="IconoFooter">
+              <img src='{%static "Imagenes/facebook.png"%}' class="IconFooter mr-2">
+            </a>
+            <a  href="https://www.facebook.com/escueladelenguajecumbresdeplacillavalparaiso/"  target="_blank" rel="noopener noreferrer" class="TxtIcono">Facebook</a>
+          </li>
+          <li class="ListaFooter d-flex align-items-center">
+            <a href="https://www.instagram.com/cumbresdeplacillavalparaiso/"  target="_blank" rel="noopener noreferrer">
+              <img src='{%static "Imagenes/instagram.png"%}' alt="Instagram" class="IconFooter mr-2">
+            </a>
+            <a  href="https://www.instagram.com/cumbresdeplacillavalparaiso/"  target="_blank" rel="noopener noreferrer" class="TxtIcono">Instagram</a>
+          </li>
+        </ul>
+      </div>
+      
+          <div ID="FooterCentro">
+            <img src='{%static "Imagenes/letras-del-logo-logo.png"%}'>
+          </div>
+          <div ID="FooterDerecha" class="d-flex align-items-center">
+            <a href="https://maps.app.goo.gl/qd44qkzyeYCdrR2x8" target="_blank" rel="noopener noreferrer">
+              <img src='{%static "Imagenes/GoogleMaps.png"%}' alt="GoogleMaps" class="IconFooter mr-2">
+            </a>
+            <a href="https://maps.app.goo.gl/qd44qkzyeYCdrR2x8" target="_blank" rel="noopener noreferrer" ID="TxtIconoD">Martínez Cruz 64, Valparaíso, Chile</a>
+          </div>
+      </footer>
+
+<!--Modal Formulario Correcto -->
+<div class="modal fade" id="modalExito" tabindex="-1" aria-labelledby="modalExitoLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalExitoLabel">¡Formulario enviado con exito!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="txtModal">
+            <label for="TextboxContraseña">¡Nos contactaremos con usted a la brevedad! </label>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
