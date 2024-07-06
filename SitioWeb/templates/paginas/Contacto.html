@@ -49,41 +49,37 @@
       </div>
     </nav>
     <script type='text/javascript'  src='{% static "js/script.js"%}'></script>
-    <main>
-    <div class="container">
-        <h2>Contáctanos</h2>
-        <form action="" method="" id="miFormulario" onsubmit="return validarConsulta()">
-          <div class="form-group">
-              <label for="nombre">Nombre:</label>
-              <input type="text" id="nombre" name="nombre" maxlength="25">
-          </div>
-  
-          <div class="form-group">
-              <label for="apellido">Apellido:</label>
-              <input type="text" id="apellido" name="apellido" maxlength="25">
-          </div>
-  
-          <div class="form-group">
-              <label for="telefono">Teléfono:</label>
-              <input type="tel" id="telefono" name="telefono" maxlength="9">
-          </div>
-  
-          <div class="form-group">
-              <label for="correo">Correo Electrónico:</label>
-              <input type="email" id="correo" name="correo" maxlength="30">
-          </div>
-  
-          <div class="form-group">
-              <label for="consulta">Consulta:</label>
-              <textarea id="consulta" name="consulta" rows="6" maxlength="250" ></textarea>
-          </div>
-          <div class="form-group">
-              <button type="button" onclick="limpiar_campos()" class="btn btn-primary">Limpiar</button>
-              <button type="submit" class="btn btn-primary">Enviar</button>
-          </div>
-      </form>
-    </div>
+    <main class="form-container">
+      <br><br><br>
+        <div class="card">
+            <div class="card-body">
+                <h2>Agregar Profesor</h2>
+                <hr>
+                <form method="post" action="{% url 'agregarProfesor' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="nombre_prof">Nombre:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido_prof">Apellido:</label>
+                        <input type="text" class="form-control" id="apellido" name="apellido" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="correo_prof">Correo:</label>
+                        <input type="email" class="form-control" id="correo_prof" name="correo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fec_contra_prof">Fecha contrato profesor:</label>
+                        <input type="date" class="form-control" id="fec_contra_prof" name="fec_contra_prof" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <a href="{% url 'listarConsulta' %}" class="btn btn-secondary">Cancelar</a>
+                </form>
+            </div>
+        </div>
     </main>
+    <br><br><br><br><br><br><br><br><br><br>
     <footer>
       <div class="FooterIzquierda">
         <ul>
