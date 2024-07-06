@@ -53,21 +53,25 @@
       <br><br><br>
         <div class="card">
             <div class="card-body">
-                <h2>Agregar Profesor</h2>
+                <h2>¡Contáctanos!</h2>
                 <hr>
-                <form method="post" action="{% url 'agregarProfesor' %}">
+                <form method="post" action="{% url 'Contacto' %}">
                     {% csrf_token %}
                     <div class="form-group">
-                        <label for="nombre_prof">Nombre:</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        <label for="nombre_c">Nombre:</label>
+                        <input type="text" class="form-control" id="nombre_c" name="nombre_c" required>
                     </div>
                     <div class="form-group">
-                        <label for="apellido_prof">Apellido:</label>
-                        <input type="text" class="form-control" id="apellido" name="apellido" required>
+                        <label for="apellido_c">Apellido:</label>
+                        <input type="text" class="form-control" id="apellido_c" name="apellido_c" required>
                     </div>
                     <div class="form-group">
-                        <label for="correo_prof">Correo:</label>
-                        <input type="email" class="form-control" id="correo_prof" name="correo" required>
+                      <label for="numero_c">Numero:</label>
+                      <input type="text" class="form-control" id="numero_c" name="numero_c" required>
+                  </div>
+                    <div class="form-group">
+                        <label for="correo_c">Correo:</label>
+                        <input type="email" class="form-control" id="correo_c" name="correo_c" required>
                     </div>
                     <div class="form-group">
                         <label for="fec_contra_prof">Fecha contrato profesor:</label>

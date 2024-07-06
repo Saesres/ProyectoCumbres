@@ -2,8 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
-from .forms import profesorForm, Profesor
-from .models import Profesor
+from .forms import profesorForm, Profesor, consultaForm, consulta
+from .models import Profesor, consulta
 
 class CustomLoginView(LoginView):
     template_name = 'templates/Modals.html'
@@ -15,8 +15,20 @@ def index(request):
     return render(request,'paginas/index.html',context)
 
 def Contacto(request):
-    context={}
-    return render(request,'paginas/Contacto.html', context)
+
+    data = {
+        'form': consultaForm()
+    }
+
+    if request.method == 'POST':
+        formulario = consultaForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "Consulta Enviada Correctamente"
+        else:
+            data["mensaje"] = formulario
+
+    return render(request,'paginas/Contacto.html', data)
 
 def agregarProfesor(request):
 
@@ -38,6 +50,10 @@ def listarProfesor(request):
     listarProfesor = Profesor.objects.all()
     return render(request, 'paginas/listarProfesor.html', {'Profesor': listarProfesor})
 
+def listarConsulta(request):
+    listarConsulta = consulta.objects.all()
+    return render(request, 'paginas/listarConsulta.html', {'consulta': listarConsulta})
+
 def modificarProfesor(request, id):
     profesor = get_object_or_404(Profesor, id=id)
     data = {
@@ -53,13 +69,15 @@ def modificarProfesor(request, id):
             data['form'] = formulario
     return render(request, 'paginas/modificarProfesor.html', data)
 
-
-
-
 def eliminarProfesor(request, id):
     profesor = get_object_or_404(Profesor, id=id)
     profesor.delete()
     return redirect('listarProfesor')
+
+def eliminarConsulta(request, id):
+    consulta = get_object_or_404(consulta, id=id)
+    consulta.delete()
+    return redirect('listarConsulta')
 
 
 

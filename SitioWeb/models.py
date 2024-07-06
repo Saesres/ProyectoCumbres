@@ -3,7 +3,10 @@ from django.db import models
 # Create your models here.
 
 class Curso(models.Model):
-    nombreCurso = models.CharField(max_length=20)
+    nombreCurso = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.nombreCurso
 
 
 class consulta(models.Model):
@@ -12,7 +15,8 @@ class consulta(models.Model):
     apellido_c = models.CharField(max_length = 20)
     numero_c = models.IntegerField()
     correo_c = models.EmailField(max_length = 254)
-    curso = models.ForeignKey(Curso, on_delete=models.PROTECT)
+    apoderado_c = models.BooleanField(default=False)
+    curso = models.ForeignKey(Curso, on_delete=models.PROTECT,default="")
     consulta_c = models.TextField()
 
     def __str__(self):
@@ -32,5 +36,3 @@ class Profesor(models.Model):
 
     class Meta:
         db_table = 'SitioWeb_profesor'
-
-
