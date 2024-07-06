@@ -50,12 +50,14 @@
                         <th>Estado</th>
                         <th colspan="2">Opciones</th>
                     </tr>
-                    {% for c in consulta %}
+                    {% for c in Consulta %}
                     <tr>
                         <td>{{ c.id_consulta }}</td>
                         <td>{{ c.correo_c }}</td>
                         <td>{{ c.apoderado_c }}</td>
+                        <td>{{ c.curso }}</td>
                         <td>{{ c.estado_c }}</td>
+                        <td><a href="estadoConsulta/{{p.id}}" class="btn btn-info">Estado</a></td>
                         <td><a href="eliminarConsulta/{{p.id}}" class="btn btn-danger">Eliminar</a></td>
                     </tr>
     

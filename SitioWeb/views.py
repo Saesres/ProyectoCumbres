@@ -2,8 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
-from .forms import profesorForm, Profesor, consultaForm, consulta
-from .models import Profesor, consulta
+from .forms import profesorForm, Profesor, consultaForm, Consulta
+from .models import Profesor, Consulta
 
 class CustomLoginView(LoginView):
     template_name = 'templates/Modals.html'
@@ -51,8 +51,8 @@ def listarProfesor(request):
     return render(request, 'paginas/listarProfesor.html', {'Profesor': listarProfesor})
 
 def listarConsulta(request):
-    listarConsulta = consulta.objects.all()
-    return render(request, 'paginas/listarConsulta.html', {'consulta': listarConsulta})
+    listarConsulta = Consulta.objects.all()
+    return render(request, 'paginas/listarConsulta.html', {'Consulta': listarConsulta})
 
 def modificarProfesor(request, id):
     profesor = get_object_or_404(Profesor, id=id)
@@ -74,8 +74,8 @@ def eliminarProfesor(request, id):
     profesor.delete()
     return redirect('listarProfesor')
 
-def eliminarConsulta(request, id_consulta):
-    consulta = get_object_or_404(consulta, id_consulta=id_consulta)
+def eliminarConsulta(request, id):
+    consulta = get_object_or_404(Consulta, id=id)
     consulta.delete()
     return redirect('listarConsulta')
 

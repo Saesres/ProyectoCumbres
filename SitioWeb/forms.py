@@ -1,5 +1,5 @@
 from django import forms
-from .models import Profesor, consulta
+from .models import Profesor, Consulta
 
 
 class profesorForm(forms.ModelForm):
@@ -14,7 +14,7 @@ class profesorForm(forms.ModelForm):
 
 class consultaForm(forms.ModelForm):
     class Meta:
-        model = consulta
+        model = Consulta
         fields = ['nombre_c', 'apellido_c', 'numero_c', 'correo_c', 'apoderado_c', 'curso', 'consulta_c']
         widgets = {
             'numero_c': forms.NumberInput(attrs={'class': 'form-control'}),

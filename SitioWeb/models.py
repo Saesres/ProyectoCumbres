@@ -9,7 +9,7 @@ class Curso(models.Model):
         return self.nombreCurso
 
 
-class consulta(models.Model):
+class Consulta(models.Model):
     id_consulta = models.AutoField(db_column='idConsulta', primary_key=True)
     nombre_c = models.CharField(max_length = 20)
     apellido_c = models.CharField(max_length = 20)
