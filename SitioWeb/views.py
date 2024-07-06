@@ -74,8 +74,8 @@ def eliminarProfesor(request, id):
     profesor.delete()
     return redirect('listarProfesor')
 
-def eliminarConsulta(request, id):
-    consulta = get_object_or_404(consulta, id=id)
+def eliminarConsulta(request, id_consulta):
+    consulta = get_object_or_404(consulta, id_consulta=id_consulta)
     consulta.delete()
     return redirect('listarConsulta')
 
