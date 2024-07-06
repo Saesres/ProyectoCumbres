@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Profesor, consulta, Curso
+from .models import Profesor, Consulta, Curso
 
 # Register your models here.
 class ProfesorAdmin(admin.ModelAdmin):
@@ -10,6 +10,6 @@ admin.site.register(Profesor, ProfesorAdmin)
 class consultaAdmin(admin.ModelAdmin):
     list_display = ['nombre_c', 'apellido_c', 'numero_c', 'correo_c', 'consulta_c']
 
-admin.site.register(consulta, consultaAdmin)
+admin.site.register(Consulta, consultaAdmin)
 
 admin.site.register(Curso)

@@ -9,7 +9,7 @@ class Curso(models.Model):
         return self.nombreCurso
 
 
-class consulta(models.Model):
+class Consulta(models.Model):
     id_consulta = models.AutoField(db_column='idConsulta', primary_key=True)
     nombre_c = models.CharField(max_length = 20)
     apellido_c = models.CharField(max_length = 20)
@@ -18,6 +18,7 @@ class consulta(models.Model):
     apoderado_c = models.BooleanField(default=False)
     curso = models.ForeignKey(Curso, on_delete=models.PROTECT,default="")
     consulta_c = models.TextField()
+    estado_c = models.BooleanField(default=False)
 
     def __str__(self):
         return self.nombre_c
