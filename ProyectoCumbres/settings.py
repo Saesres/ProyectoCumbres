@@ -70,6 +70,7 @@ TEMPLATES = [
         },
     },
 ]
+LOGIN_REDIRECT_URL = 'Index'
 
 WSGI_APPLICATION = 'ProyectoCumbres.wsgi.application'
 

@@ -1,0 +1,2 @@
+Nombre usuario = SanJimz@cumbres.cl  //  MarNun@cumbres.cl
+Contraseña     = SaJimC2024         //   MNunezC2024
