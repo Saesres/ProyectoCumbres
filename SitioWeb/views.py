@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
-from .forms import profesorForm, Profesor, consultaForm, Consulta
+from .forms import profesorForm, Profesor, consultaForm, Consulta, EstadoForm
 from .models import Profesor, Consulta
 
 class CustomLoginView(LoginView):
@@ -81,11 +81,20 @@ def eliminarConsulta(request, id):
 
 def estadoConsulta(request, id):
     consulta = get_object_or_404(Consulta, id_consulta=id)
+    
+    if request.method == 'POST':
+        estado_form = EstadoForm(request.POST, instance=consulta)
+        if estado_form.is_valid():
+            estado_form.save()
+            return redirect('listarConsulta') 
+    else:
+        estado_form = EstadoForm(instance=consulta)
+    
     data = {
-        'form': consultaForm(instance=consulta)
+        'consulta': consulta,
+        'estado_form': estado_form,
     }
-    return render(request,'paginas/estadoConsulta.html',data)
-
+    return render(request, 'paginas/estadoConsulta.html', data)
 
 
 

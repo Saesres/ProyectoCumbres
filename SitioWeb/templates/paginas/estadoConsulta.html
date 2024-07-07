@@ -55,43 +55,46 @@
           <div class="card-body">
               <h2>Consulta</h2>
               <hr>
-              <form method="post" action="{% url 'Contacto' %}">
+              <form method="post">
                   {% csrf_token %}
                   <div class="form-group">
                       <label for="nombre_c">Nombre:</label>
-                      <input type="text" class="form-control" id="nombre_c" name="nombre_c" required>
+                      <input type="text" class="form-control" id="nombre_c" value="{{ consulta.nombre_c }}" readonly>
                   </div>
                   <div class="form-group">
                       <label for="apellido_c">Apellido:</label>
-                      <input type="text" class="form-control" id="apellido_c" name="apellido_c" required>
+                      <input type="text" class="form-control" id="apellido_c" value="{{ consulta.apellido_c }}" readonly>
                   </div>
                   <div class="form-group">
                       <label for="numero_c">Número:</label>
-                      <input type="number" class="form-control" id="numero_c" name="numero_c" required>
+                      <input type="text" class="form-control" id="numero_c" value="{{ consulta.numero_c }}" readonly>
                   </div>
                   <div class="form-group">
                       <label for="correo_c">Correo:</label>
-                      <input type="email" class="form-control" id="correo_c" name="correo_c" required>
+                      <input type="email" class="form-control" id="correo_c" value="{{ consulta.correo_c }}" readonly>
                   </div>
                   <div class="form-group">
                       <label for="apoderado_c">¿Es Apoderado?</label>
-                      <input type="checkbox" class="form-check-input" id="apoderado_c" name="apoderado_c">
+                      <input type="checkbox" class="form-check-input" id="apoderado_c" {% if consulta.apoderado_c %}checked{% endif %} disabled>
                   </div>
                   <div class="form-group">
                       <label for="curso">Curso:</label>
-                      <select class="form-control" id="curso" name="curso" required>
-                          <option value="">Seleccione un curso</option>
-                          <option value="1">Medio Mayor</option>
-                          <option value="2">Kinder</option>
-                          <option value="3">Pre-Kinder</option>
-                      </select>
+                      <input type="text" class="form-control" id="curso" value="{{ consulta.get_curso_display }}" readonly>
                   </div>
                   <div class="form-group">
                       <label for="consulta_c">Consulta:</label>
-                      <input type="text" class="form-control" id="consulta_c" name="consulta_c" required>
+                      <textarea class="form-control" id="consulta_c" readonly>{{ consulta.consulta_c }}</textarea>
+                  </div>
+                  <div class="form-group">
+                      <label for="estado">Estado:</label>
+                      {{ estado_form.estado_c }}
+                  </div>
+                  <div class="form-group">
+                      <label for="respuesta">Respuesta:</label>
+                      {{ estado_form.respuesta_c }}
                   </div>
                   <div class="d-flex justify-content-center">
-                      <button type="submit" class="btn btn-primary">Enviar</button>
+                      <button type="submit" class="btn btn-primary">Guardar</button>
                       &nbsp;
                       <a href="{% url 'listarConsulta' %}" class="btn btn-secondary">Cancelar</a>
                   </div>

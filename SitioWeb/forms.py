@@ -22,3 +22,12 @@ class consultaForm(forms.ModelForm):
             'curso': forms.Select(attrs={'class': 'form-control'}),
             'consulta_c': forms.TextInput(attrs={'class': 'form-control'}),
         }
+
+class EstadoForm(forms.ModelForm):
+    class Meta:
+        model = Consulta
+        fields = ['estado_c', 'respuesta_c']
+        widgets = {
+            'estado_c': forms.CheckboxInput(),
+            'respuesta_c': forms.Textarea(attrs={'rows': 3}),
+        }

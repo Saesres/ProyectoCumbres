@@ -11,14 +11,15 @@ class Curso(models.Model):
 
 class Consulta(models.Model):
     id_consulta = models.AutoField(db_column='idConsulta', primary_key=True)
-    nombre_c = models.CharField(max_length = 20)
-    apellido_c = models.CharField(max_length = 20)
+    nombre_c = models.CharField(max_length=20)
+    apellido_c = models.CharField(max_length=20)
     numero_c = models.IntegerField()
-    correo_c = models.EmailField(max_length = 254)
+    correo_c = models.EmailField(max_length=254)
     apoderado_c = models.BooleanField(default=False)
-    curso = models.ForeignKey(Curso, on_delete=models.PROTECT,default="")
+    curso = models.ForeignKey(Curso, on_delete=models.PROTECT, default="")
     consulta_c = models.TextField()
     estado_c = models.BooleanField(default=False)
+    respuesta_c = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.nombre_c

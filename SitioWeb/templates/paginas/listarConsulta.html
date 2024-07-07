@@ -22,6 +22,9 @@
           <li class="nav-item">
             <a class="nav-link nav-item-custom" aria-current="page" href="{%url 'index'%}">Inicio</a>
           </li>
+          <li>
+            <a class="nav-link nav-item-custom" href="{%url 'Contacto'%}" target="_blank" rel="noopener noreferrer">Contacto</a>
+          </li>
           <li class="nav-item" id="btnAdmin">
             <a class="nav-link nav-item-custom" href="{%url 'listarProfesor'%}" target="_blank" rel="noopener noreferrer">Gestíon de Profesores</a>
           </li>
@@ -52,7 +55,12 @@
                     <tr>
                         <td>{{ c.id_consulta }}</td>
                         <td>{{ c.correo_c }}</td>
-                        <td>{{ c.apoderado_c }}</td>
+                        <td>{% if c.apoderado_c == True %}
+                              Si
+                          {% else %}
+                              No
+                          {% endif %}
+                        </td>
                         <td>{{ c.curso }}</td>
                         <td>
                           {% if c.estado_c == True %}
