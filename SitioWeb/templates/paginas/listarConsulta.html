@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <title>Listar Consulta</title>
+ <title>Agregar Profesor</title>
  <link rel="icon" href="/Images/Logo.png" type="image/x-icon"> 
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,17 +22,32 @@
           <li class="nav-item">
             <a class="nav-link nav-item-custom" aria-current="page" href="{%url 'index'%}">Inicio</a>
           </li>
-          <li>
-            <a class="nav-link nav-item-custom" href="{%url 'Contacto'%}" target="_blank" rel="noopener noreferrer">Contacto</a>
+          <li class="nav-item">
+            <a class="nav-link nav-item-custom" href='{%static "/PDF/normativaEjemplo.pdf"%}' target="_blank" rel="noopener noreferrer">Normativa</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle nav-item-custom" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Lista de útiles
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href='{%static "/PDF/listaEjemplo.pdf"%}' target="_blank" rel="noopener noreferrer">Medio Mayor</a></li>
+              <li><a class="dropdown-item" href='{%static "/PDF/listaEjemplo.pdf"%}' target="_blank" rel="noopener noreferrer">Pre-Kinder</a></li>
+              <li><a class="dropdown-item" href='{%static "/PDF/listaEjemplo.pdf"%}'target="_blank" rel="noopener noreferrer">Kinder</a></li>
+            </ul>
+          </li>
+          <li class="nav-item" id="btnCrud">
+              <a class="nav-link nav-item-custom" href="{%url 'agregarProfesor'%}" target="_blank" rel="noopener noreferrer">Gestíon de Profesores</a>
           </li>
           <li class="nav-item" id="btnAdmin">
-            <a class="nav-link nav-item-custom" href="{%url 'listarProfesor'%}" target="_blank" rel="noopener noreferrer">Gestíon de Profesores</a>
+            <a class="nav-link nav-item-custom" href="{%url 'listarProfesor'%}" target="_blank" rel="noopener noreferrer">Lista de Profesores</a>
+          </li>
+          <li class="nav-item" id="btnConsultas">
+            <a class="nav-link nav-item-custom" href="{%url 'listarConsulta'%}" target="_blank" rel="noopener noreferrer">Consultas</a>
           </li>
         </ul>
         <div class="right-item">
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar Sesión</button>
       </div>
-
       </div>
     </div>
   </nav>
@@ -60,27 +75,27 @@
                               <td>{{ c.id_consulta }}</td>
                               <td>{{ c.correo_c }}</td>
                               <td>{% if c.apoderado_c %}
-                                    Si
-                                {% else %}
-                                    No
-                                {% endif %}
+                                  Si
+                                  {% else %}
+                                  No
+                                  {% endif %}
                               </td>
                               <td>{% if c.curso %}
                                   {{ c.curso }}
-                                {% else %}
-                                    Ninguno
-                                {% endif %}
+                                  {% else %}
+                                  Ninguno
+                                  {% endif %}
                               </td>
                               <td>
-                                {% if c.estado_c %}
-                                    Resuelta
-                                {% else %}
-                                    Pendiente
-                                {% endif %}
+                                  {% if c.estado_c %}
+                                  Resuelta
+                                  {% else %}
+                                  Pendiente
+                                  {% endif %}
                               </td>
                               <td>
                                   <a href="estadoConsulta/{{ c.id_consulta }}" class="btn btn-info">Detalle</a>
-                                  <a href="eliminarConsulta/{{ c.id_consulta }}" class="btn btn-danger ml-1">Eliminar</a>
+                                  <a href="eliminarConsulta/{{ c.id_consulta }}" class="btn btn-danger ml-1" onclick="return confirm('¿Estás seguro de que deseas eliminar esta consulta?')">Eliminar</a>
                               </td>
                           </tr>
                           {% endfor %}
@@ -90,6 +105,7 @@
           </div>
       </div>
   </main>
+  
   
   <br>
   <footer>

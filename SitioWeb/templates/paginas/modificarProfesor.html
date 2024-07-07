@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <title>Modificar Profesor</title>
+ <title>Agregar Profesor</title>
  <link rel="icon" href="/Images/Logo.png" type="image/x-icon"> 
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,33 +11,46 @@
  <link type='text/css' href="{%static "css/style.css"%}" rel="stylesheet" />
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-custom">
-      <div class="container-fluid nav-bar-custom">
-        <a class="navbar-brand" href=""><img src='{%static "Imagenes/Logo.png"%}' alt="Bootstrap" width="90" height="72"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link nav-item-custom" aria-current="page" href="{%url 'index'%}">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-item-custom" aria-current="page" href="{%url 'agregarProfesor'%}">Agregar Profesor</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-item-custom" aria-current="page" href="{%url 'listarProfesor'%}">Lista de Profesores</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-item-custom" aria-current="page" href="{%url 'listarConsulta'%}">Consultas</a>
-            </li>
-          </ul>
-          <div class="right-item">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar Sesión</button>
-        </div>
-        </div>
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container-fluid nav-bar-custom">
+      <a class="navbar-brand" href=""><img src='{%static "Imagenes/Logo.png"%}' alt="Bootstrap" width="90" height="72"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link nav-item-custom" aria-current="page" href="{%url 'index'%}">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-item-custom" href='{%static "/PDF/normativaEjemplo.pdf"%}' target="_blank" rel="noopener noreferrer">Normativa</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle nav-item-custom" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Lista de útiles
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href='{%static "/PDF/listaEjemplo.pdf"%}' target="_blank" rel="noopener noreferrer">Medio Mayor</a></li>
+              <li><a class="dropdown-item" href='{%static "/PDF/listaEjemplo.pdf"%}' target="_blank" rel="noopener noreferrer">Pre-Kinder</a></li>
+              <li><a class="dropdown-item" href='{%static "/PDF/listaEjemplo.pdf"%}'target="_blank" rel="noopener noreferrer">Kinder</a></li>
+            </ul>
+          </li>
+          <li class="nav-item" id="btnCrud">
+              <a class="nav-link nav-item-custom" href="{%url 'agregarProfesor'%}" target="_blank" rel="noopener noreferrer">Gestíon de Profesores</a>
+          </li>
+          <li class="nav-item" id="btnAdmin">
+            <a class="nav-link nav-item-custom" href="{%url 'listarProfesor'%}" target="_blank" rel="noopener noreferrer">Lista de Profesores</a>
+          </li>
+          <li class="nav-item" id="btnConsultas">
+            <a class="nav-link nav-item-custom" href="{%url 'listarConsulta'%}" target="_blank" rel="noopener noreferrer">Consultas</a>
+          </li>
+        </ul>
+        <div class="right-item">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar Sesión</button>
       </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
     <main class="form-container">
       <div class="card">
           <div class="card-body">
