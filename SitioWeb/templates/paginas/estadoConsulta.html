@@ -79,7 +79,11 @@
                   </div>
                   <div class="form-group">
                       <label for="curso">Curso:</label>
-                      <input type="text" class="form-control" id="curso" value="{{ consulta.get_curso_display }}" readonly>
+                      {% if consulta.curso %}
+                          <input type="text" class="form-control" id="curso" value="{{ consulta.curso }}" readonly>
+                      {% else %}
+                          <input type="text" class="form-control" id="curso" value="Ninguno" readonly>
+                      {% endif %}
                   </div>
                   <div class="form-group">
                       <label for="consulta_c">Consulta:</label>
@@ -102,6 +106,7 @@
           </div>
       </div>
   </main>
+  
     <br><br><br><br><br><br><br><br><br><br>
     <footer>
       <div class="FooterIzquierda">

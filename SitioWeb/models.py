@@ -16,7 +16,7 @@ class Consulta(models.Model):
     numero_c = models.IntegerField()
     correo_c = models.EmailField(max_length=254)
     apoderado_c = models.BooleanField(default=False)
-    curso = models.ForeignKey(Curso, on_delete=models.PROTECT, default="")
+    curso = models.ForeignKey(Curso, on_delete=models.PROTECT, blank=True, null=True)
     consulta_c = models.TextField()
     estado_c = models.BooleanField(default=False)
     respuesta_c = models.TextField(blank=True, null=True)

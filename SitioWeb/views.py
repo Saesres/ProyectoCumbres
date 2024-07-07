@@ -15,7 +15,6 @@ def index(request):
     return render(request,'paginas/index.html',context)
 
 def Contacto(request):
-
     data = {
         'form': consultaForm()
     }
@@ -23,12 +22,15 @@ def Contacto(request):
     if request.method == 'POST':
         formulario = consultaForm(data=request.POST)
         if formulario.is_valid():
-            formulario.save()
-            data["mensaje"] = "Consulta Enviada Correctamente"
+            consulta = formulario.save(commit=False)
+            if not formulario.cleaned_data['curso']:
+                consulta.curso = None
+            consulta.save()
+            return render(request, 'paginas/Contacto.html', {'form': consultaForm(), 'mensaje': "Consulta Enviada Correctamente"})
         else:
-            data["mensaje"] = formulario
+            data["mensaje"] = formulario.errors
 
-    return render(request,'paginas/Contacto.html', data)
+    return render(request, 'paginas/Contacto.html', data)
 
 def agregarProfesor(request):
 
