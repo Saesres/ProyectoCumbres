@@ -25,9 +25,11 @@
           <li class="nav-item">
             <a class="nav-link nav-item-custom" href='{%static "/PDF/normativaEjemplo.pdf"%}' target="_blank" rel="noopener noreferrer">Normativa</a>
           </li>
-          <li class="nav-item" id="btnAdmin">
-            <a class="nav-link nav-item-custom" href="{%url 'listarProfesor'%}" target="_blank" rel="noopener noreferrer">Lista de Profesores</a>
+          {%  if perms.SitioWeb.view_profesor %}
+          <li class="nav-item">
+              <a class="nav-link nav-item-custom" href="{% url 'listarProfesor' %}" target="_blank" rel="noopener noreferrer">Gestión de Profesores</a>
           </li>
+          {%  endif %}
           <li class="nav-item" id="btnConsultas">
             <a class="nav-link nav-item-custom" href="{%url 'listarConsulta'%}" target="_blank" rel="noopener noreferrer">Consultas</a>
           </li>
