@@ -28,6 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'index'
 
 # Application definition
 
@@ -70,7 +72,7 @@ TEMPLATES = [
         },
     },
 ]
-LOGIN_REDIRECT_URL = 'Index'
+LOGIN_REDIRECT_URL = 'index'
 
 WSGI_APPLICATION = 'ProyectoCumbres.wsgi.application'
 

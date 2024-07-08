@@ -6,7 +6,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('SitioWeb/', include('SitioWeb.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('', views.index, name='index')
+    path('', views.index, name='index'),
 ]
 
 admin.site.site_header = "Administración Colegio Cumbres de Placilla"

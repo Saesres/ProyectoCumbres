@@ -13,44 +13,58 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container-fluid nav-bar-custom">
-      <a class="navbar-brand" href=""><img src='{%static "Imagenes/Logo.png"%}' alt="Bootstrap" width="90" height="72"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link nav-item-custom" aria-current="page" href="{%url 'index'%}">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link  nav-item-custom" href="{%url 'Contacto'%}">Contacto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link nav-item-custom" href='{%static "/PDF/normativaEjemplo.pdf"%}' target="_blank" rel="noopener noreferrer">Normativa</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle nav-item-custom" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Lista de útiles
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href='{%static "/PDF/listaEjemplo.pdf"%}' target="_blank" rel="noopener noreferrer">Medio Mayor</a></li>
-              <li><a class="dropdown-item" href='{%static "/PDF/listaEjemplo.pdf"%}' target="_blank" rel="noopener noreferrer">Pre-Kinder</a></li>
-              <li><a class="dropdown-item" href='{%static "/PDF/listaEjemplo.pdf"%}'target="_blank" rel="noopener noreferrer">Kinder</a></li>
+        <a class="navbar-brand" href="{% url 'index' %}">
+            <img src="{% static 'Imagenes/Logo.png' %}" alt="Logo" width="90" height="72">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link nav-item-custom" aria-current="page" href="{% url 'index' %}">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-item-custom" href="{% url 'Contacto' %}">Contacto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-item-custom" href="{% static '/PDF/normativaEjemplo.pdf' %}" target="_blank" rel="noopener noreferrer">Normativa</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle nav-item-custom" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Lista de útiles
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% static '/PDF/listaEjemplo.pdf' %}" target="_blank" rel="noopener noreferrer">Medio Mayor</a></li>
+                        <li><a class="dropdown-item" href="{% static '/PDF/listaEjemplo.pdf' %}" target="_blank" rel="noopener noreferrer">Pre-Kinder</a></li>
+                        <li><a class="dropdown-item" href="{% static '/PDF/listaEjemplo.pdf' %}" target="_blank" rel="noopener noreferrer">Kinder</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-item-custom" href="{% url 'listarProfesor' %}" target="_blank" rel="noopener noreferrer">Gestión de Profesores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-item-custom" href="{% url 'listarConsulta' %}" target="_blank" rel="noopener noreferrer">Consultas</a>
+                </li>
             </ul>
-          </li>
-          <li class="nav-item" id="btnGProfes">
-              <a class="nav-link nav-item-custom" href="{%url 'listarProfesor'%}" target="_blank" rel="noopener noreferrer">Gestíon de Profesores</a>
-          </li>
-          <li class="nav-item" id="btnConsultas">
-            <a class="nav-link nav-item-custom" href="{%url 'listarConsulta'%}" target="_blank" rel="noopener noreferrer">Consultas</a>
-          </li>
-        </ul>
-        <div class="right-item">
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar Sesión</button>
-      </div>
-      </div>
+            <div class="right-item">
+                {% if user.is_authenticated %}
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-link nav-link nav-item-custom">Cerrar Sesión</button>
+                    </form>
+                    <!--
+                    <li>
+                      <a href="'#">{{ user.username }}</a>
+                    </li>
+                       -->
+                {% else %}
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar Sesión</button>
+                {% endif %}   
+            </div>
+        </div>
     </div>
-  </nav>
+</nav>
     <div id="carouselExampleAutoplaying" class="carousel slide carousel-custom" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">

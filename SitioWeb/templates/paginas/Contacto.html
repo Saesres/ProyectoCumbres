@@ -130,21 +130,36 @@
           </div>
       </footer>
 
-<!--Modal Formulario Correcto -->
-<div class="modal fade" id="modalExito" tabindex="-1" aria-labelledby="modalExitoLabel" aria-hidden="true">
+<!-- modal inicio de sesion -->
+<form method="post" action="{% url 'login' %}" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  {% csrf_token %}
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modalExitoLabel">¡Formulario enviado con exito!</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Inicio de Sesion</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="txtModal">
-            <label for="TextboxContraseña">Nos contactaremos con usted a la brevedad </label>
+            <label for="username">Nombre de usuario</label>
+            <input type="text" id="username" name="username" value="" required>
         </div>
-    </div>
+        <div class="txtModal">
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" value="" required>
+        </div>
+        <p><a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <input type="submit" class="btn btn-primary" value="Ingresar">
+      </div>
     </div>
   </div>
-</div>
+</form>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 </html>
