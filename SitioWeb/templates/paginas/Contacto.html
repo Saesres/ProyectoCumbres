@@ -38,6 +38,16 @@
               <li><a class="dropdown-item" href='{%static "/PDF/listaEjemplo.pdf"%}'target="_blank" rel="noopener noreferrer">Kinder</a></li>
             </ul>
           </li>
+          {%  if perms.SitioWeb.view_profesor %}
+          <li class="nav-item">
+              <a class="nav-link nav-item-custom" href="{% url 'listarProfesor' %}" target="_blank" rel="noopener noreferrer">Gestión de Profesores</a>
+          </li>
+          {%  endif %}
+          {% if user.is_authenticated and perms.SitioWeb.view_consulta %}
+          <li class="nav-item">
+              <a class="nav-link nav-item-custom" href="{% url 'listarConsulta' %}">Consultas</a>
+          </li>
+          {% endif %}
         </ul>
         <div class="right-item">
           {% if user.is_authenticated %}

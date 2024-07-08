@@ -38,9 +38,16 @@
               <li><a class="dropdown-item" href='{%static "/PDF/listaEjemplo.pdf"%}'target="_blank" rel="noopener noreferrer">Kinder</a></li>
             </ul>
           </li>
-          <li class="nav-item" id="btnAdmin">
-            <a class="nav-link nav-item-custom" href="{%url 'listarProfesor'%}" target="_blank" rel="noopener noreferrer">Lista de Profesores</a>
+          {% if user.is_authenticated and perms.SitioWeb.view_consulta %}
+          <li class="nav-item">
+              <a class="nav-link nav-item-custom" href="{% url 'listarConsulta' %}">Consultas</a>
           </li>
+          {% endif %}
+          {%  if perms.SitioWeb.view_profesor %}
+          <li class="nav-item">
+              <a class="nav-link nav-item-custom" href="{% url 'listarProfesor' %}" target="_blank" rel="noopener noreferrer">Gestión de Profesores</a>
+          </li>
+          {%  endif %}
         </ul>
         <div class="right-item">
           {% if user.is_authenticated %}

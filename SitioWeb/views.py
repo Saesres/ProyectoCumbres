@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
 from .forms import profesorForm, Profesor, consultaForm, Consulta, EstadoForm
 from .models import Profesor, Consulta
+from django.contrib.auth.decorators import permission_required
 
 class CustomLoginView(LoginView):
     template_name = 'templates/Modals.html'
@@ -52,6 +53,7 @@ def listarProfesor(request):
     listarProfesor = Profesor.objects.all()
     return render(request, 'paginas/listarProfesor.html', {'Profesor': listarProfesor})
 
+@permission_required('SitioWeb.view_consulta')
 def listarConsulta(request):
     listarConsulta = Consulta.objects.all()
     return render(request, 'paginas/listarConsulta.html', {'Consulta': listarConsulta})
